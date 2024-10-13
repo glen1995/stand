@@ -11,7 +11,7 @@
     "service_worker": "background.js"
   },
   "action": {
-    "default_popup": "popup/hello.html",
+    "default_popup": "popup/popup.html",
     "default_icon": {
       "16": "images/default_icon.png",
       "48": "images/default_icon.png",
@@ -19,6 +19,6 @@
     }
   },
   "content_security_policy": {
-    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"
+    "extension_pages": "script-src 'self'; object-src 'self';"
   }
 }
