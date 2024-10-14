@@ -1,16 +1,18 @@
+// Usage: import { localStorage } from './storage/storage';
+
 export type TimerConfig = {
     time: number;
 }
 
 
 export const localStorage = {
-    get: (callback: (configs: TimerConfig) => void, key: keyof TimerConfig) => {
+    get: (callback: (configs: Record<string, string>) => void, key: keyof TimerConfig) => {
         chrome.storage.sync.get(key, (storage) => {
-            callback(storage.configs);
+            callback(storage);
         });
     },
     set: (configs: TimerConfig, callback?: () => void) => {
-        chrome.storage.sync.set({ configs }, () => {
+        chrome.storage.sync.set(configs, () => {
             callback?.();
         });
     },
