@@ -1,11 +1,10 @@
-import { localStorage, TimerConfig } from '../storage/storage';
+import { getStorageData, setStorageData } from '../storage/storage';
 
-export function setRecursiveTime(time: number): void {
-    localStorage.set({ time } as TimerConfig);
-    getRecursiveTime();
+export async function setRecursiveTime(time: number) {
+    return await setStorageData({ time });
 }
 
 
-export function getRecursiveTime(): void {
-    localStorage.get((configs: Record<string, string>) => { console.log("configs", configs) }, "time");
+export async function getRecursiveTime() {
+    return await getStorageData();
 }
