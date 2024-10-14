@@ -3,7 +3,7 @@
   "description": "This extension is made for reminding purposes",
   "version": "1.0",
   "manifest_version": 3,
-  "permissions": ["alarms", "scripting"],
+  "permissions": ["storage"],
   "icons": {
     "128": "images/default_icon.png"
   },
