@@ -6,11 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body class="min-h-96 min-w-96 p-2">
-    <h1 class="bg-blue-600 text-cyan-300 text-center mx-5">
-        Hello world!
-    </h1>
-    <script src="../script.js"></script>
+<body class="min-h-96 min-w-96 p-2 flex flex-row justify-center items-center">
+    <div class="text-center flex content-center flex-row justify-center">
+        <div class="flex flex-col gap-4">
+            <div class="flex flex-col gap-8">
+                <div id="time" class="text-3xl font-bold">
+                    counter
+                </div>
+                <div class="flex flex-row gap-4 bg-slate-950 justify-center">
+                    <div>
+                        <button id="startReminder" class="bg-white font-bold py-4 px-4 rounded">
+                            <object class="w-3 h-3" data="../images/icons/reload.svg" type="image/svg+xml"></object>
+                    </div>
+                    <div>
+                        <button id="pauseReminder" class="bg-white font-bold py-4 px-4 rounded">
+                            <object class="w-3 h-3" data="../images/icons/arrow-down.svg" type="image/svg+xml"></object>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <label for="interval">Interval (minutes):</label>
+                <input type="number" min="1" name="interval" id="interval"
+                    class="border border-black w-12 rounded-md text-center" />
+            </div>
+            <div class="flex flex-row gap-2 justify-center items-center">
+                <div>
+                    Status: <span id="status">Sitting </span>
+                </div>
+                <img class="w-3 h-3" src="../images/icons/arrow-down.svg" alt="">
+            </div>
+        </div>
+    </div>
+    <script src="../script.js" defer></script>
 </body>
 
 </html>
