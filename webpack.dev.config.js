@@ -2,7 +2,7 @@ const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    mode: "production",
+    mode: "development",
     entry: {
         background: path.resolve(__dirname, "src", "background.ts"),
         script: path.resolve(__dirname, "src", "scripts", "index.ts"),
@@ -41,4 +41,6 @@ module.exports = {
             }]
         }),
     ],
+    watch: true,
+    devtool: 'cheap-module-source-map',
 };
