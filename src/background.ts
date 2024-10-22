@@ -1,4 +1,19 @@
 import * as timer from './scripts/handleTime';
 
-timer.setRecursiveTime(50).then(() => { console.log("data is set"); }).catch((err) => { console.log(err); });
-timer.getRecursiveTime().then((data) => { console.log(data); });
+console.log("Service worker is running")
+chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
+    if (request.action === "pauseReminder") {
+        console.log("Service worker received message from sender %s", sender.id, request)
+        const time = await timer.getRecursiveTime()
+        sendResponse({ time })
+    }
+    if (request.action === "setInterval") {
+        try {
+            await timer.setRecursiveTime(request.interval)
+            sendResponse({ response: true })
+        } catch (error) {
+            console.log(error)
+            sendResponse({ response: false })
+        }
+    }
+})
